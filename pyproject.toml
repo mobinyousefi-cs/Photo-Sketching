@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "photo-sketcher"
+version = "0.1.0"
+description = "Convert photos to clean pencil sketches using OpenCV."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Mobin Yousefi", email = "mobinyousefi.cs@gmail.com" },
+]
+keywords = ["computer-vision", "opencv", "image-processing", "pencil-sketch", "deep-learning-mini-project"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+  "Topic :: Scientific/Engineering :: Image Processing",
+]
+
+dependencies = [
+  "opencv-python>=4.9.0",
+  "numpy>=1.25.0",
+  "typer[all]>=0.12.0",
+  "rich>=13.7.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mobinyousefi-cs/photo-sketcher"
+"Source" = "https://github.com/mobinyousefi-cs/photo-sketcher"
+"Bug Tracker" = "https://github.com/mobinyousefi-cs/photo-sketcher/issues"
+
+[project.scripts]
+photo-sketch = "photo_sketcher.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ["py39"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I", "B"]
+ignore = []
+extend-exclude = ["build", "dist"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra"
+testpaths = ["tests"]
